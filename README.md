@@ -1,7 +1,11 @@
-node version :v20.11.0
-express
-nodemon for local developement.
-Database:Postgresql
+🚀 Technologies Used
+Node.js v20.11.0​
+Express.js​
+PostgreSQL​
+Sequelize ORM​
+Nodemon (for local development)​
+
+
 
 Steps to run the application
 -->Create the database with name studentsvault.
