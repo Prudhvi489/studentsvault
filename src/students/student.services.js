@@ -104,7 +104,10 @@ export const studentMarksUpdateService = async(req) =>{
         if (!existingAsset) {
             return { ...HTTP.NOT_FOUND, message: "Student not found" };
         }
-        await repo.createStudentMarks(req.body);
+        const marks = await repo.createStudentMarks(req.body);
+        if(!marks){
+            return {...HTTP.CONFLICT, message:'Student mark record with same examId already exists'}
+        }
         return { ...HTTP.CREATED, message: "Student Record updated Succesfully" };
 
     }

@@ -71,6 +71,19 @@ export const DeleteStudent = async(id) =>{
 
 export const createStudentMarks = async (props) => {
   try{
+     const {studentId, examId, subject} = props;
+     // Check if a record with the same studentId, examId, and subject exists
+     const existingRecord = await Mark.findOne({
+      where: {
+        studentId,
+        examId,
+        subject,
+      },
+    });
+
+    if (existingRecord) {
+      return false;
+    }
     return await Mark.create(props);
   }
   catch(err){
